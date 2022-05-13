@@ -1,22 +1,16 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 @import "~@ng-select/ng-select/themes/default.theme.css";
-@import url('https://fonts.googleapis.com/css2?family=Acme&family=Redressed&display=swap');
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  font-family: 'Acme', sans-serif;
-}
 
 // main colors
-$color-yellow: #ffc107;
-$color-orange: #f18900;
-$color-light-orange:#ffca75a3;
-$color-petroleum: #3b474d;
-$color-dark-petroleum: #172c3d;
-$color-gray: #f9f9f9;
-$color-black: #5a5555;
-$color-green: #1db57b;
+$color-red:#ff9c9c;
+$color-green: #86e0a4;
+$color-dark-blue:#183c5b;
+$color-medium-blue:#4d708e;
+$color-light-blue:#678cab;
+$color-ligth-sky:#f1fdff;
+$color-font: #363636;
+$color-gray:#f2f2f2;
+
 
 //responsive
 $information-laptopLarge: "only screen and (max-width : 1440px)";
@@ -25,6 +19,26 @@ $information-tablet: "only screen and (max-width : 768px)";
 $information-MobileLarge: "only screen and (max-width : 425px)";
 $information-MobileMedium: "only screen and (max-width : 375px)";
 $information-MobileSmall: "only screen and (max-width : 320px)";
+
+
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Acme', sans-serif;
+}
+
+// font face
+@font-face {
+	font-family: 'Titillium Web';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+
 //mixin func
 @mixin clearfix() {
   &::after {
@@ -35,12 +49,17 @@ $information-MobileSmall: "only screen and (max-width : 320px)";
 }
 
 @mixin btn($color) {
-  background-color: white;
+  background-color: $color;
   border: solid 1px $color;
-  color: $color;
+  color: white;
   transition: 0.5s;
+  padding: 5px;
+  margin: 10px;
+  min-width: 130px;
   &:hover {
-    background-color: $color;
+    filter: saturate(5);
+  }
+  i::before{
     color: white;
   }
   @media #{$information-tablet} {
@@ -61,7 +80,7 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color:  $color-petroleum;
+    background-color:  $color-dark-blue;
   }
 }
 
@@ -112,11 +131,11 @@ main {
 }
 
 %input {
-  // box-shadow: 9px 9px 19px 0px rgba(0, 0, 0, 0.13);
+  padding: 10px;
   background-color: white;
-  border: 1px solid $color-yellow;
+  border: none;
   border-radius: 7px;
-  height: 60px;
+  height: 36px;
   font-size: 12px;
   transition: 0.2s;
 
@@ -124,24 +143,23 @@ main {
     color: #999999;
     font-weight: normal;
   }
-  &:focus-within {
-    border-bottom: 2px solid $color-yellow;
+  &:focus-within , &:focus {
+    border: none;
+    box-shadow:none;
+    border-bottom: 2px solid $color-medium-blue;
   }
 }
 
 .btn-blue {
-  @include btn( $color-petroleum);
+  @include btn( $color-dark-blue);
 }
-.btn-orange {
-  @include btn($color-orange);
-}
-.btn-yellow {
-  @include btn($color-yellow);
+.btn-red {
+  @include btn($color-red);
 }
 .btn-green {
   @include btn($color-green);
 }
-.input{
+input{
   @extend %input;
 }
 //ng select style
@@ -149,11 +167,13 @@ main {
 .ng-select {
   @extend %input;
   .ng-select-container {
-    height: 100% !important;
+    height: 36px;
     border: none;
     border-radius: 16px;
     align-items: center;
     padding: 14px;
+    border-radius: 7px;
+    background-color:$color-gray;
     .ng-input {
       top: 0;
     }
@@ -166,7 +186,7 @@ main {
   .ng-dropdown-panel {
     background-color: #ffffff;
     border-radius: 0 0 18px 18px;
-    border-bottom: solid 3px $color-yellow;
+    border-bottom: solid 3px $color-medium-blue;
     padding: 9px 0;
 
     .scroll-host {
@@ -174,7 +194,7 @@ main {
       .ng-option {
         padding: 5px;
         &:hover {
-          background-color: $color-yellow;
+          background-color: $color-medium-blue;
           color: #ffffff;
         }
       }
@@ -189,7 +209,7 @@ main {
       }
 
       &::-webkit-scrollbar-thumb {
-        background-color: $color-yellow;;
+        background-color: $color-medium-blue;;
       }
     }
   }
