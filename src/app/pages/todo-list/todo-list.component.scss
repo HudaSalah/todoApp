@@ -37,19 +37,17 @@
     }
   }
 
-  .buttons-container {
+  .group-container{
     .group-label {
       background-color: $color-light-blue;
       padding: 7px 15px;
       margin: 10px 0;
       font-size: 14px;
-      width: auto;
-      min-width: 90px;
+      width: 90px;
       color: white;
       height: 36px;
       border-radius: 3px;
     }
   }
-
 
 }

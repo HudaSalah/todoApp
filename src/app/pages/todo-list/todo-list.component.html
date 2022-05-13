@@ -48,30 +48,37 @@
           <!-- end  filteration part  -->
 
           <!-- controls buttons part  -->
-          <div class="buttons-container d-flex justify-content-between">
-            <div class="group-label">
-              <label>Group 1</label>
-            </div>
-            <div>
-              <button class="btn btn-red">
-                <i class="bi bi-trash3"></i>
-                Delete Selected
-              </button>
+          <div class="d-flex justify-content-end">
+            <button class="btn btn-red" [disabled]="!selectedTasks.length" (click)="deleteAllSelectedTasks()">
+              <i class="bi bi-trash3"></i>
+              Delete Selected
+            </button>
 
-              <button class="btn btn-green">
-                <i class="bi bi-check2-circle"></i>
-                Done
-              </button>
-            </div>
+            <button class="btn btn-green" [disabled]="!selectedTasks.length" (click)="doneAllTasks()">
+              <i class="bi bi-check2-circle"></i>
+              Done
+            </button>
           </div>
 
           <!-- end controls buttons part  -->
 
           <!-- task part  -->
+          <div
+            class="group-container"
+            *ngFor="let group of TaskData | keyvalue"
+          >
+            <div class="group-label">
+              <label>{{ group.key }}</label>
+            </div>
 
-          <app-task></app-task>
-          <app-task></app-task>
-          <app-task></app-task>
+            <app-task
+              *ngFor="let task of group.value.tasks"
+              [task]="task"
+              (deleteTask)="deleteTask($event)"
+              (selectedTasks)="selectTasks($event)"
+              (changeState)="changeState($event)"
+            ></app-task>
+          </div>
 
           <!-- end task part  -->
         </div>
