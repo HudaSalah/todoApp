@@ -1,0 +1,8 @@
+@import "src/styles.scss";
+#addTodo {
+  .todoForm-container {
+    min-height: 100vh;
+    background-image: linear-gradient(#4ba2d1, #d0e4e0);
+    padding: 20px;
+  }
+}

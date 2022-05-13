@@ -1,1 +1,125 @@
-<p>add-todo works!</p>
+<main>
+  <section id="addTodo">
+    <div class="todoForm-container">
+      <div class="form-container">
+        <form
+          class="w-75 mx-auto"
+          [formGroup]="todoForm"
+          (ngSubmit)="onSubmit(todoForm)"
+        >
+          <h5 class="mb-3">ADD NEW TODO</h5>
+
+          <div class="row mb-3">
+            <!-- title field  -->
+            <div class="form-group col-12">
+              <label>Title : </label>
+              <input
+                placeholder="write title"
+                type="text"
+                class="form-control"
+                formControlName="title"
+                required
+              />
+              <small
+                id="title"
+                class="form-text"
+                *ngIf="hasError('title', 'required')"
+              >
+                * this field is required
+              </small>
+            </div>
+            <!-- end title field  -->
+
+            <!-- description field  -->
+            <div class="form-group col-12">
+              <label>Description : </label>
+              <textarea
+                placeholder="write description here ..."
+                type="text"
+                class="form-control"
+                formControlName="description"
+                required
+              ></textarea>
+              <small
+                id="description"
+                class="form-text"
+                *ngIf="hasError('description', 'required')"
+              >
+                * this field is required
+              </small>
+            </div>
+            <!-- end description field  -->
+
+            <!-- date field  -->
+            <div class="form-group col-12">
+              <label>Date : </label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="date"
+                required
+              />
+              <small
+                id="date"
+                class="form-text"
+                *ngIf="hasError('date', 'required')"
+              >
+                * this field is required
+              </small>
+            </div>
+            <!-- end date field  -->
+
+            <!-- group field  -->
+            <div class="form-group col-12">
+              <label>Group : </label>
+              <ng-select
+                [items]="GroupData"
+                class="form-control w-100 p-0"
+                bindLabel="name"
+                bindValue="id"
+                dropdownPosition="bottom"
+                formControlName="group"
+              >
+              </ng-select>
+              <small
+                id="group"
+                class="form-text"
+                *ngIf="hasError('group', 'required')"
+              >
+                * this field is required
+              </small>
+            </div>
+            <!-- end group field  -->
+          </div>
+
+          <!-- convert button  -->
+          <div class="form-group col-12 col-md-5 d-flex align-items-center">
+            <button
+              type="submit"
+              class="w-100 btn submit-btn btn-green"
+              [disabled]="todoForm.invalid"
+            >
+              <i class="bi bi-plus-circle"></i> ADD
+            </button>
+
+            <button
+              type="button"
+              class="w-100 btn submit-btn btn-green"
+              (click)="resetForm()"
+            >
+              <i class="bi bi-trash3"></i> Delete
+            </button>
+
+            <button
+              type="submit"
+              class="w-100 btn submit-btn btn-green"
+              routerLink="/"
+            >
+              <i class="bi bi-arrow-bar-left"></i> Back
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
