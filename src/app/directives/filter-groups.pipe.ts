@@ -5,12 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterGroupsPipe implements PipeTransform {
 
-  transform(items: any[], filter: any): any {
-    console.log('items groups',items)
-    console.log('filter groups',filter)
-    if (!items || !filter) {
-        return items;
-    }
-    return items.filter(item => filter.indexOf(item.id) !== -1);
-}
+	transform(items: any[], filter: any[]): any {
+		if (!items || (filter || []).length == 0) {
+			return items;
+		}
+		return items.filter((item) => filter.indexOf(item.groupId) !== -1);
+	}
 }
