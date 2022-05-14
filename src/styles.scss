@@ -2,15 +2,14 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
 // main colors
-$color-red:#ff9c9c;
+$color-red: #ff9c9c;
 $color-green: #86e0a4;
-$color-dark-blue:#183c5b;
-$color-medium-blue:#4d708e;
-$color-light-blue:#678cab;
-$color-ligth-sky:#f1fdff;
+$color-dark-blue: #183c5b;
+$color-medium-blue: #4d708e;
+$color-light-blue: #678cab;
+$color-ligth-sky: #f1fdff;
 $color-font: #363636;
-$color-gray:#f2f2f2;
-
+$color-gray: #f2f2f2;
 
 //responsive
 $information-laptopLarge: "only screen and (max-width : 1440px)";
@@ -20,23 +19,23 @@ $information-MobileLarge: "only screen and (max-width : 425px)";
 $information-MobileMedium: "only screen and (max-width : 375px)";
 $information-MobileSmall: "only screen and (max-width : 320px)";
 
-
-
 *,
 *:before,
 *:after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Acme', sans-serif;
+  font-family: "Acme", sans-serif;
 }
 
 // font face
 @font-face {
-	font-family: 'Titillium Web';
-	font-style: normal;
-	font-weight: 300;
-	src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Titillium WebLight"), local("TitilliumWeb-Light"),
+    url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff)
+      format("woff");
 }
 
 //mixin func
@@ -59,7 +58,7 @@ $information-MobileSmall: "only screen and (max-width : 320px)";
   &:hover {
     filter: saturate(5);
   }
-  i::before{
+  i::before {
     color: white;
   }
   @media #{$information-tablet} {
@@ -80,7 +79,7 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color:  $color-dark-blue;
+    background-color: $color-dark-blue;
   }
 }
 
@@ -143,15 +142,16 @@ main {
     color: #999999;
     font-weight: normal;
   }
-  &:focus-within , &:focus {
+  &:focus-within,
+  &:focus {
     border: none;
-    box-shadow:none;
+    box-shadow: none;
     border-bottom: 2px solid $color-medium-blue;
   }
 }
 
 .btn-blue {
-  @include btn( $color-dark-blue);
+  @include btn($color-dark-blue);
 }
 .btn-red {
   @include btn($color-red);
@@ -159,7 +159,12 @@ main {
 .btn-green {
   @include btn($color-green);
 }
-input{
+.btn-gray {
+  @include btn(#999999);
+}
+
+input,
+textarea {
   @extend %input;
 }
 //ng select style
@@ -173,15 +178,15 @@ input{
     align-items: center;
     padding: 14px;
     border-radius: 7px;
-    background-color:$color-gray;
+    background-color: $color-gray;
     .ng-input {
       top: 0;
     }
-    .ng-value-container{
-      .ng-placeholder{
-        top:auto !important;
+    .ng-value-container {
+      .ng-placeholder {
+        top: auto !important;
       }
-     }
+    }
   }
   .ng-dropdown-panel {
     background-color: #ffffff;
@@ -209,9 +214,8 @@ input{
       }
 
       &::-webkit-scrollbar-thumb {
-        background-color: $color-medium-blue;;
+        background-color: $color-medium-blue;
       }
     }
   }
-
 }

@@ -23,7 +23,7 @@ export class AddTodoComponent implements OnInit {
       description: new FormControl(null, [Validators.required]),
       date: new FormControl(null, [Validators.required]),
       group: new FormControl(null, [Validators.required]),
-      priority: new FormControl(null, [Validators.required]),
+      priority: new FormControl(null),
     });
   }
 
@@ -49,8 +49,24 @@ export class AddTodoComponent implements OnInit {
       this.validationService.validateAllFormFields(todoForm);
       return;
     }
+
+    let newTask = {
+      id: this.TaskDataService.getTaskData().length + 2,
+      title: todoForm.value.title,
+      date: todoForm.value.date,
+      state: false,
+      groupId: todoForm.value.group,
+      groupName: 'group' + todoForm.value.group,
+      description: todoForm.value.description,
+    };
+    this.TaskDataService.AllTasks.push(newTask);
+    console.log(this.TaskDataService.AllTasks);
+    this.todoForm.reset();
   }
-  resetForm() {}
+
+  resetForm() {
+    this.todoForm.reset();
+  }
 
   ngOnInit(): void {
     this.initForm();
