@@ -1,6 +1,9 @@
 export class TaskModal {
   id: number;
   title: string;
-  date: Date;
+  date: string;
   state: boolean;
+  description:string;
+  groupId: number;
+  groupName: string;
 }

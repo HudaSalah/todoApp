@@ -1,4 +1,4 @@
-<div class="task" id="{{ task?.id }}">
+<div class="task" id="{{ task?.id }}" [routerLink]="['/todo/' + task.id]">
   <div>
     <input
       class="styled-checkbox"

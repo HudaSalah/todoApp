@@ -151,6 +151,13 @@ export class TaskDataService {
     return this.AllTasks;
   }
 
+  getTaskById(taskId){
+    const task = this.AllTasks.find((task) => {
+      return task.id == taskId;
+    });
+    return task;
+  }
+
   changeTaskState(taskId) {
     const task = this.AllTasks.find((task) => {
       return task.id == taskId;
