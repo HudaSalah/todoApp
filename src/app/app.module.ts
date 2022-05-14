@@ -10,6 +10,9 @@ import { TodoDetailsComponent } from './pages/todo-details/todo-details.componen
 import { AddTodoComponent } from './pages/add-todo/add-todo.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { TaskComponent } from './components/task/task.component';
+import { FilterTitlePipe } from './directives/filter-title.pipe';
+import { FilterDatePipe } from './directives/filter-date.pipe';
+import { FilterGroupsPipe } from './directives/filter-groups.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { TaskComponent } from './components/task/task.component';
     AddTodoComponent,
     SideMenuComponent,
     TaskComponent,
+    FilterTitlePipe,
+    FilterDatePipe,
+    FilterGroupsPipe,
   ],
   imports: [
     BrowserModule,

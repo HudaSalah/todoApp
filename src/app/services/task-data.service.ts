@@ -10,7 +10,7 @@ export class TaskDataService {
     {
       id: 1,
       title: 'task1',
-      date: '01/01/2022',
+      date: '2022-01-01',
       state: true,
       groupId: 1,
       groupName: 'group1',
@@ -18,7 +18,7 @@ export class TaskDataService {
     {
       id: 2,
       title: 'task2',
-      date: '02/01/2022',
+      date: '2022-01-01',
       state: false,
       groupId: 1,
       groupName: 'group1',
@@ -26,7 +26,7 @@ export class TaskDataService {
     {
       id: 3,
       title: 'task3',
-      date: '13/01/2022',
+      date: '2022-01-12',
       state: true,
       groupId: 2,
       groupName: 'group2',
@@ -34,7 +34,7 @@ export class TaskDataService {
     {
       id: 4,
       title: 'task4',
-      date: '02/02/2022',
+      date: '2022-02-02',
       state: false,
       groupId: 2,
       groupName: 'group2',
@@ -42,7 +42,7 @@ export class TaskDataService {
     {
       id: 5,
       title: 'task5',
-      date: '03/03/2022',
+      date: '2022-03-03',
       state: true,
       groupId: 3,
       groupName: 'group3',
@@ -50,7 +50,7 @@ export class TaskDataService {
     {
       id: 6,
       title: 'task1',
-      date: '01/01/2022',
+      date: '2022-03-03',
       state: true,
       groupId: 3,
       groupName: 'group3',
@@ -58,7 +58,7 @@ export class TaskDataService {
     {
       id: 7,
       title: 'task1',
-      date: '02/01/2022',
+      date: '2022-01-01',
       state: true,
       groupId: 3,
       groupName: 'group3',
@@ -66,7 +66,7 @@ export class TaskDataService {
     {
       id: 8,
       title: 'task1',
-      date: '04/05/2022',
+      date: '2022-05-04',
       state: true,
       groupId: 3,
       groupName: 'group3',
@@ -74,7 +74,7 @@ export class TaskDataService {
     {
       id: 9,
       title: 'task1',
-      date: '13/11/2022',
+      date: '2022-05-05',
       state: true,
       groupId: 3,
       groupName: 'group3',
@@ -82,7 +82,7 @@ export class TaskDataService {
     {
       id: 10,
       title: 'task1',
-      date: '1/1/2022',
+      date: '2022-01-01',
       state: true,
       groupId: 4,
       groupName: 'group4',
@@ -90,7 +90,7 @@ export class TaskDataService {
     {
       id: 12,
       title: 'task1',
-      date: '1/1/2022',
+      date: '2022-01-01',
       state: true,
       groupId: 4,
       groupName: 'group4',
@@ -98,7 +98,7 @@ export class TaskDataService {
     {
       id: 13,
       title: 'task1',
-      date: '1/1/2022',
+      date: '2022-01-01',
       state: true,
       groupId: 4,
       groupName: 'group4',
@@ -106,7 +106,7 @@ export class TaskDataService {
     {
       id: 14,
       title: 'task1',
-      date: '1/1/2022',
+      date: '2022-05-14',
       state: true,
       groupId: 4,
       groupName: 'group4',
@@ -114,7 +114,7 @@ export class TaskDataService {
     {
       id: 15,
       title: 'task1',
-      date: '1/1/2022',
+      date: '2022-05-15',
       state: true,
       groupId: 4,
       groupName: 'group4',
@@ -122,7 +122,7 @@ export class TaskDataService {
     {
       id: 16,
       title: 'task1',
-      date: '1/1/2022',
+      date: '2022-06-06',
       state: true,
       groupId: 4,
       groupName: 'group4',
@@ -142,6 +142,10 @@ export class TaskDataService {
 
   getGroupData() {
     return this.allGroups;
+  }
+
+  updateLocalStorage(){
+    localStorage.setItem('myTodoTasks', JSON.stringify(this.AllTasks));
   }
 
   deleteTask(taskId) {

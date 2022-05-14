@@ -25,12 +25,22 @@
             <div class="filteration-container row align-items-center">
               <div class="col-12 col-md-2 mx-2">
                 <label for="dateInput" class="form-label">Date</label>
-                <input type="date" class="form-control" id="dateInput" />
+                <input
+                  type="date"
+                  class="form-control"
+                  id="dateInput"
+                  [(ngModel)]="dateFilterVal"
+                />
               </div>
 
               <div class="col-12 col-md-2 mx-2">
                 <label for="titleInput" class="form-label">Title</label>
-                <input type="text" class="form-control" id="titleInput" />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="titleInput"
+                  [(ngModel)]="titleFilterVal"
+                />
               </div>
 
               <div class="col-12 col-md-4 mx-2">
@@ -41,7 +51,8 @@
                   bindLabel="name"
                   bindValue="id"
                   dropdownPosition="bottom"
-                  [multiple]=true
+                  [multiple]="true"
+                  [(ngModel)]="groupFilterVal"
                 >
                 </ng-select>
               </div>
@@ -51,12 +62,20 @@
 
           <!-- controls buttons part  -->
           <div class="d-flex justify-content-end">
-            <button class="btn btn-red" [disabled]="!selectedTasks.length" (click)="deleteAllSelectedTasks()">
+            <button
+              class="btn btn-red"
+              [disabled]="!selectedTasks.length"
+              (click)="deleteAllSelectedTasks()"
+            >
               <i class="bi bi-trash3"></i>
               Delete Selected
             </button>
 
-            <button class="btn btn-green" [disabled]="!selectedTasks.length" (click)="doneAllTasks()">
+            <button
+              class="btn btn-green"
+              [disabled]="!selectedTasks.length"
+              (click)="doneAllTasks()"
+            >
               <i class="bi bi-check2-circle"></i>
               Done
             </button>
@@ -74,7 +93,12 @@
             </div>
 
             <app-task
-              *ngFor="let task of group.value.tasks"
+              *ngFor="
+                let task of group.value.tasks
+                  | filterDate: dateFilterVal
+                  | filterTitle: titleFilterVal
+                  | filterGroups: groupFilterVal
+              "
               [task]="task"
               (deleteTask)="deleteTask($event)"
               (selectedTasks)="selectTasks($event)"

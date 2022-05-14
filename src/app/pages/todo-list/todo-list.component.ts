@@ -10,6 +10,11 @@ export class TodoListComponent implements OnInit {
   GroupData: Array<object> = [];
   TaskData: Array<object> = [];
   selectedTasks: Array<any> = [];
+
+  dateFilterVal;
+  titleFilterVal;
+  groupFilterVal;
+
   constructor(private TaskDataService: TaskDataService) {
     this.GroupData = TaskDataService.getGroupData();
     this.TaskData = this.groupBy(TaskDataService.getTaskData(), 'groupName');

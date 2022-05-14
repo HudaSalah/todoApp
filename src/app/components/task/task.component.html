@@ -1,4 +1,4 @@
-<div class="task" id="{{ task?.id }}" [routerLink]="['/todo/' + task.id]">
+<div class="task" id="{{ task?.id }}">
   <div>
     <input
       class="styled-checkbox"
@@ -7,7 +7,7 @@
       value="{{ task?.id }}"
       (change)="selectTask(task.id)"
     />
-    <label for="{{ task?.id }}">{{ task?.title }}</label>
+    <label for="{{ task?.id }}"  [routerLink]="['/todo/' + task.id]">{{ task?.title }}</label>
     <label class="date">{{ task?.date }}</label>
   </div>
 
