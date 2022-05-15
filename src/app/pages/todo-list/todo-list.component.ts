@@ -30,6 +30,7 @@ export class TodoListComponent implements OnInit, OnDestroy {
 	routeGroup;
 	filterType = FilterType;
 	dateFormat = 'yyyy-MM-dd';
+  TaskData=[];
 	constructor(
 		private _activatedRoute: ActivatedRoute,
 		private TaskDataService: TaskDataService,
@@ -45,6 +46,7 @@ export class TodoListComponent implements OnInit, OnDestroy {
 		this.GroupData = this.TaskDataService.getGroupData();
 		this.taskSubscription = this.TaskDataService.tasksObservable.subscribe((tasks) => {
 			this.tasks = tasks;
+      this.SetTaskData();
 		});
 
 		this._activatedRoute.queryParamMap.subscribe((params) => {
@@ -60,7 +62,7 @@ export class TodoListComponent implements OnInit, OnDestroy {
 		}
 	}
 
-	get TaskData() {
+	SetTaskData() {
 		let results = [];
 		const filterModel = new FilterModel();
 		filterModel.title = this.titleFilterVal;
@@ -91,7 +93,7 @@ export class TodoListComponent implements OnInit, OnDestroy {
 				break;
 		}
 		results = this.applyAllFilters(this.tasks, filterModel);
-		return this.groupBy(results);
+		this.TaskData= this.groupBy(results);
 	}
 
 	applyAllFilters(results, filterModel: FilterModel) {
