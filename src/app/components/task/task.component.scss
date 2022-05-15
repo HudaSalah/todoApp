@@ -8,12 +8,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  cursor: pointer;
 
   .styled-checkbox {
     position: absolute; // take it out of document flow
     opacity: 0; // hide it
-    z-index: 1;
+    // z-index: 1;
     & + label {
       font-size: 14px;
       position: relative;

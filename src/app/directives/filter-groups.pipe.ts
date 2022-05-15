@@ -1,10 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filterGroups'
+	name: 'filterGroups'
 })
 export class FilterGroupsPipe implements PipeTransform {
-
 	transform(items: any[], filter: any[]): any {
 		if (!items || (filter || []).length == 0) {
 			return items;

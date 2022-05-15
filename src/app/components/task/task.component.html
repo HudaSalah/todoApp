@@ -2,30 +2,35 @@
   <div>
     <input
       class="styled-checkbox"
+      id="styled-checkbox-{{ task?.id }}"
       type="checkbox"
-      id="{{ task?.id }}"
       value="{{ task?.id }}"
       (change)="selectTask(task.id)"
     />
-    <label for="{{ task?.id }}"  [routerLink]="['/todo/' + task.id]">{{ task?.title }}</label>
+    <label for="styled-checkbox-{{ task?.id }}">{{ task?.title }}</label>
     <label class="date">{{ task?.date }}</label>
   </div>
 
   <div class="button-container">
-    <button class="btn btn-red" (click)="Delete(task.id)">
-      <i class="bi bi-trash3"></i>
+    <button
+      class="btn btn-red"
+      (click)="delete(task.id)"
+      *ngIf="!task.isDeleted"
+    >
+      <i title="delete" class="bi bi-trash3"></i>
+    </button>
+    <button class="btn btn-gray" [routerLink]="['/todo/' + task.id]">
+      <i title="view" class="bi bi-ticket-detailed"></i>
     </button>
     <button
       class="btn btn-green"
       [ngClass]="{
-        done: task?.state,
-        todo: !task?.state
+        'done btn-green': task?.state,
+        'todo btn-blue': !task?.state
       }"
-      (click)="changeTaskState(task.id)"
-
+      (click)="changeTaskState(task)"
     >
-      <i class="bi bi-check2-circle"></i>
+      <i title="state" class="bi bi-check2-circle"></i>
     </button>
   </div>
 </div>
-<!-- (click)="task.state = !task.state"" -->
