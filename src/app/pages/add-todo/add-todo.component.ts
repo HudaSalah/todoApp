@@ -4,6 +4,8 @@ import { TaskDataService } from 'src/app/services/task-data.service';
 import { FormValidatorService } from 'src/app/services/form-validator.service';
 import { TaskModel } from 'src/app/models/task.model';
 import { TaskState } from 'src/app/models/task-state.enum';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
 	selector: 'app-add-todo',
 	templateUrl: './add-todo.component.html',
@@ -14,7 +16,8 @@ export class AddTodoComponent implements OnInit {
 	todoForm: FormGroup;
 	constructor(
 		private TaskDataService: TaskDataService,
-		private validationService: FormValidatorService
+		private validationService: FormValidatorService,
+    private toastr: ToastrService
 	) {
 		this.GroupData = TaskDataService.getGroupData();
 	}
@@ -52,6 +55,7 @@ export class AddTodoComponent implements OnInit {
 		console.log(todoForm.value);
 		if (todoForm.invalid) {
 			this.validationService.validateAllFormFields(todoForm);
+      this.toastr.error("Form invalid please fill all data", "Invalid")
 			return;
 		}
 		let newTask: TaskModel = {
@@ -65,6 +69,7 @@ export class AddTodoComponent implements OnInit {
 			isDeleted: false
 		};
 		this.TaskDataService.addTask(newTask);
+    this.toastr.success("Your Todo Task Added Successfuly", "Todo Task")
 		this.todoForm.reset();
 	}
 

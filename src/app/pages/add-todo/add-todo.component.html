@@ -99,6 +99,13 @@
               name="priority"
               formControlName="priority"
             />
+            <small
+              id="priority"
+              class="form-text"
+              *ngIf="hasError('priority', 'required')"
+            >
+              * this field is required
+            </small>
           </div>
           <!-- end priority field  -->
         </div>

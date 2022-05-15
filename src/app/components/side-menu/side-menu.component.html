@@ -54,18 +54,20 @@
 			</li>
 			<li>
 				<a
-					class="btn"
+					class="btn collapsed"
 					data-toggle="collapse"
-					href="#groupCollapse"
+          data-target="#groupCollapse"
 					role="button"
 					aria-expanded="false"
 					aria-controls="groupCollapse"
+          (click)="toggleCollapse()"
 				>
 					<i class="bi bi-folder"></i>
 					<span class="nav-text">Groups</span>
 					<i class="bi bi-caret-up"></i>
 				</a>
-				<div class="collapse show" id="groupCollapse">
+
+				<div class="collapse" id="groupCollapse" aria-labelledby="groupCollapse" data-parent="#groupCollapse">
 					<ul>
 						<li *ngFor="let group of groups" (click)="setFilter(filterType.group, group.id)">
 							<a>

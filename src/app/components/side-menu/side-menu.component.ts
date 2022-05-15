@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FilterType } from 'src/app/models/filter-type.enum';
 import { TaskDataService } from 'src/app/services/task-data.service';
-
+declare var $: any;
 @Component({
 	selector: 'app-side-menu',
 	templateUrl: './side-menu.component.html',
@@ -29,4 +29,8 @@ export class SideMenuComponent implements OnInit {
 			});
 		}
 	}
+
+  toggleCollapse(){
+    $('.collapse').collapse();
+  }
 }

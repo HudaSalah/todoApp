@@ -52,6 +52,7 @@ export class TodoListComponent implements OnInit, OnDestroy {
 		this._activatedRoute.queryParamMap.subscribe((params) => {
 			this.routeFilter = +params.get('type');
 			this.routeGroup = +params.get('group');
+      this.SetTaskData();
 		});
 	}
 
