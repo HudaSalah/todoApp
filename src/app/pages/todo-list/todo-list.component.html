@@ -33,6 +33,7 @@
 									class="form-control"
 									id="dateInput"
 									[(ngModel)]="dateFilterVal"
+									(ngModelChange)="SetTaskData()"
 								/>
 							</div>
 
@@ -43,6 +44,7 @@
 									class="form-control"
 									id="titleInput"
 									[(ngModel)]="titleFilterVal"
+									(ngModelChange)="SetTaskData()"
 								/>
 							</div>
 
@@ -56,6 +58,7 @@
 									dropdownPosition="bottom"
 									[multiple]="true"
 									[(ngModel)]="groupFilterVal"
+									(ngModelChange)="SetTaskData()"
 								></ng-select>
 							</div>
 						</div>
